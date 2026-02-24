@@ -1,0 +1,1304 @@
+/* ========================================
+   Traditional Sikh Wedding Invitation Theme
+   Ivory, Cream, Gold, Deep Maroon
+   ======================================== */
+
+:root {
+    --color-ivory: #FFFEF7;
+    --color-cream: #FDF8F0;
+    --color-cream-dark: #F5EDE0;
+    --color-gold: #B8860B;
+    --color-gold-light: #D4AF37;
+    --color-gold-pale: #E8D5A3;
+    --color-maroon: #722F37;
+    --color-maroon-deep: #5C252B;
+    --color-maroon-light: #8B3A42;
+    --color-text-dark: #3D2828;
+    --color-text-light: #5C4848;
+    --color-white: #ffffff;
+    --shadow-soft: 0 4px 20px rgba(114, 47, 55, 0.08);
+    --shadow-gold: 0 4px 20px rgba(184, 134, 11, 0.2);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--color-cream);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Mehndi pattern background texture */
+body.punjabi-theme {
+    background-color: var(--color-cream);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath fill='none' stroke='%23722F37' stroke-width='0.15' opacity='0.06' d='M40 5 Q50 20 45 35 Q40 50 25 45 Q10 40 15 25 Q20 10 40 5 M40 75 Q30 60 35 45 Q40 30 55 35 Q70 40 65 55 Q60 70 40 75'/%3E%3Cpath fill='%23B8860B' fill-opacity='0.03' d='M40 20 Q48 28 44 38 Q40 48 30 44 Q22 36 28 26 Q34 16 40 20'/%3E%3C/svg%3E");
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes heroZoomIn {
+    from { opacity: 0.9; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-hero-fade-in {
+    animation: heroFadeIn 1.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    animation: slideUp 0.6s ease-out forwards;
+    animation-play-state: paused;
+}
+
+.animate-slide-up.in-view {
+    animation-play-state: running;
+}
+
+.animate-slide-up:nth-child(1) { animation-delay: 0.1s; }
+.animate-slide-up:nth-child(2) { animation-delay: 0.2s; }
+.animate-slide-up:nth-child(3) { animation-delay: 0.3s; }
+.animate-slide-up:nth-child(4) { animation-delay: 0.4s; }
+.animate-slide-up:nth-child(5) { animation-delay: 0.5s; }
+
+/* ========================================
+   Invitation Opening Overlay
+   ======================================== */
+
+.invitation-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-cream);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath fill='%23722F37' fill-opacity='0.04' d='M30 0 Q40 15 35 30 Q30 45 15 40 Q0 35 10 20 Q20 5 30 0'/%3E%3C/svg%3E");
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    border: 2px solid rgba(184, 134, 11, 0.4);
+}
+
+.invitation-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.invitation-content {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.invitation-ik-onkar {
+    font-size: 3rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.invitation-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    color: var(--color-maroon-deep);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.invitation-greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-style: italic;
+    color: var(--color-maroon);
+    letter-spacing: 0.08em;
+    margin-bottom: 2rem;
+}
+
+.open-invitation-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    background: transparent;
+    color: var(--color-maroon);
+    border: 2px solid var(--color-gold);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.open-invitation-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-cream);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   Gold Glitter Sparkles
+   ======================================== */
+
+.sparkles-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.sparkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: floatSparkle 25s ease-in-out infinite;
+    box-shadow: 0 0 4px rgba(184, 134, 11, 0.4);
+}
+
+@keyframes floatSparkle {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.06;
+    }
+    25% {
+        transform: translate(6px, -12px) scale(1.15);
+        opacity: 0.16;
+    }
+    50% {
+        transform: translate(-5px, -8px) scale(0.9);
+        opacity: 0.09;
+    }
+    75% {
+        transform: translate(4px, -15px) scale(1.08);
+        opacity: 0.14;
+    }
+}
+
+/* ========================================
+   Shimmer Gold Border
+   ======================================== */
+
+.shimmer-border {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    border: 1px solid rgba(184, 134, 11, 0.5);
+}
+
+.shimmer-border-inner {
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: conic-gradient(
+        from 0deg,
+        rgba(184, 134, 11, 0.25) 0deg 45deg,
+        rgba(212, 175, 55, 0.5) 90deg 135deg,
+        rgba(184, 134, 11, 0.25) 180deg 225deg,
+        rgba(212, 175, 55, 0.4) 270deg 315deg,
+        rgba(184, 134, 11, 0.25) 360deg
+    );
+    animation: rotateShimmer 8s linear infinite;
+    -webkit-mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff) padding-box;
+    mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff) padding-box;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+@keyframes rotateShimmer {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   Phulkari-style Border Patterns
+   ======================================== */
+
+.phulkari-border {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9997;
+    background-repeat: repeat;
+    opacity: 0.6;
+}
+
+.phulkari-top,
+.phulkari-bottom {
+    left: 0;
+    right: 0;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24'%3E%3Cg fill='%23B8860B' fill-opacity='0.6'%3E%3Cpath d='M0 12 L5 8 L10 12 L15 8 L20 12 L25 8 L30 12 L35 8 L40 12'/%3E%3Ccircle cx='5' cy='8' r='2'/%3E%3Ccircle cx='15' cy='8' r='2'/%3E%3Ccircle cx='25' cy='8' r='2'/%3E%3Ccircle cx='35' cy='8' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.phulkari-top { top: 0; }
+.phulkari-bottom { bottom: 0; transform: rotate(180deg); }
+
+.phulkari-left,
+.phulkari-right {
+    top: 24px;
+    bottom: 24px;
+    width: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='40'%3E%3Cg fill='%23B8860B' fill-opacity='0.6'%3E%3Cpath d='M12 0 L8 5 L12 10 L8 15 L12 20 L8 25 L12 30 L8 35 L12 40'/%3E%3Ccircle cx='8' cy='5' r='2'/%3E%3Ccircle cx='8' cy='15' r='2'/%3E%3Ccircle cx='8' cy='25' r='2'/%3E%3Ccircle cx='8' cy='35' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.phulkari-left { left: 0; }
+.phulkari-right { right: 0; transform: rotate(180deg); }
+
+/* ========================================
+   Music Toggle Button
+   ======================================== */
+
+.music-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    border: 2px solid var(--color-gold);
+    background: var(--color-cream);
+    color: var(--color-maroon);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-gold);
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background: var(--color-gold-pale);
+}
+
+.music-toggle .icon-pause {
+    display: none;
+}
+
+.music-toggle .icon-play {
+    display: block;
+}
+
+.music-toggle.playing .icon-pause {
+    display: block;
+}
+
+.music-toggle.playing .icon-play {
+    display: none;
+}
+
+/* ========================================
+   Hero Section - Traditional Sikh Wedding
+   ======================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-cream);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--color-cream);
+    z-index: 0;
+}
+
+/* Floral corner decorations - invitation card style */
+.hero-corner {
+    position: absolute;
+    top: 0;
+    width: clamp(80px, 18vw, 140px);
+    height: clamp(80px, 18vw, 140px);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-corner-tl {
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='0.6' opacity='0.5'%3E%3Cpath d='M5 50 Q20 30 45 40 Q35 55 5 50 M25 15 Q45 25 40 45 Q25 35 25 15 M55 25 Q75 15 80 35 Q65 45 55 25'/%3E%3Ccircle cx='15' cy='42' r='3' fill='%23B8860B' opacity='0.4'/%3E%3Ccircle cx='35' cy='28' r='2.5' fill='%23B8860B' opacity='0.35'/%3E%3Ccircle cx='60' cy='32' r='2' fill='%23B8860B' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-corner-tr {
+    right: 0;
+    transform: scaleX(-1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='0.6' opacity='0.5'%3E%3Cpath d='M5 50 Q20 30 45 40 Q35 55 5 50 M25 15 Q45 25 40 45 Q25 35 25 15 M55 25 Q75 15 80 35 Q65 45 55 25'/%3E%3Ccircle cx='15' cy='42' r='3' fill='%23B8860B' opacity='0.4'/%3E%3Ccircle cx='35' cy='28' r='2.5' fill='%23B8860B' opacity='0.35'/%3E%3Ccircle cx='60' cy='32' r='2' fill='%23B8860B' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Soft golden glow behind illustration */
+.hero-glow {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 420px);
+    height: min(55vw, 320px);
+    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.12) 0%, rgba(184, 134, 11, 0.05) 50%, transparent 75%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    padding-top: clamp(2rem, 6vw, 4rem);
+    max-width: 520px;
+    width: 100%;
+}
+
+/* Ik Onkar at top */
+.ik-onkar-line {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+}
+
+/* Sikh greeting */
+.punjabi-greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-maroon);
+    margin-bottom: 1.25rem;
+}
+
+/* Couple names - above illustration, script font */
+.hero-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    font-weight: 400;
+    color: var(--color-maroon-deep);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+}
+
+.groom-name,
+.bride-name {
+    display: block;
+}
+
+.ampersand {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.55em;
+    color: var(--color-gold);
+    margin: 0.15em 0;
+}
+
+/* Mandap illustration - slow zoom-in animation */
+.hero-illustration {
+    width: min(90%, 380px);
+    max-width: 380px;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 20px rgba(184, 134, 11, 0.12));
+}
+
+.hero-illustration-zoom {
+    animation: heroZoomIn 8s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.mandap-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-hashtag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--color-maroon);
+    margin-top: 1.25rem;
+}
+
+/* ========================================
+   Section Styling
+   ======================================== */
+
+section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Gold ornamental divider between sections */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold) 20%, var(--color-gold) 80%, transparent);
+    opacity: 0.7;
+}
+
+section:first-of-type::before {
+    display: none;
+}
+
+/* Floral corner decorations in sections */
+.countdown, .events, .love-story, .gallery, .rsvp-section, .rsvp-form-section, .wishes-section {
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='0.4' opacity='0.35'%3E%3Cpath d='M2 25 Q12 12 25 18 Q18 32 2 25 M18 2 Q32 12 28 28 Q12 18 18 2'/%3E%3Ccircle cx='8' cy='18' r='1.5' fill='%23B8860B' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 45px 45px;
+    background-position: top left, top right, bottom left, bottom right;
+    background-repeat: no-repeat;
+}
+
+section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--color-maroon-deep);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 1rem auto 0;
+}
+
+/* ========================================
+   Countdown Section
+   ======================================== */
+
+.countdown {
+    background: var(--color-cream);
+    color: var(--color-text-dark);
+    border-top: 1px solid rgba(184, 134, 11, 0.5);
+    border-bottom: 1px solid rgba(184, 134, 11, 0.5);
+}
+
+.countdown h2 {
+    text-align: center;
+}
+
+.countdown-date {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-maroon);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.countdown-item {
+    background: var(--color-white);
+    padding: 2rem 2.5rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    min-width: 120px;
+    border: 1px solid rgba(184, 134, 11, 0.4);
+    transition: var(--transition);
+}
+
+.countdown-item:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-5px);
+}
+
+.countdown-value {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-maroon-deep);
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   Events Timeline Section
+   ======================================== */
+
+.events {
+    background: var(--color-cream-dark);
+}
+
+.events h2 {
+    color: var(--color-maroon-deep);
+}
+
+/* Wedding Timeline - Horizontal/Vertical */
+.wedding-timeline {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--color-gold) 10%, var(--color-gold) 90%, transparent);
+    opacity: 0.6;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right;
+}
+
+.timeline-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    z-index: 2;
+}
+
+.timeline-main .timeline-icon {
+    background: var(--color-gold-pale);
+    border-color: var(--color-gold);
+    transform: scale(1.1);
+}
+
+.timeline-content {
+    flex: 1;
+    background: var(--color-white);
+    padding: 1.25rem;
+    border-radius: 4px;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+.timeline-main .timeline-content {
+    background: var(--color-ivory);
+    border: 1px solid var(--color-gold);
+}
+
+.timeline-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--color-maroon-deep);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--color-maroon);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
+.events-timeline {
+    margin-top: 2rem;
+}
+
+.event-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.event-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.event-item:last-child {
+    margin-bottom: 0;
+}
+
+.event-item.event-main {
+    background: var(--color-ivory);
+    border: 1px solid var(--color-gold);
+}
+
+.event-date {
+    flex-shrink: 0;
+    text-align: center;
+    width: 100px;
+}
+
+.event-date .day {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-maroon);
+}
+
+.event-date .month {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.event-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--color-maroon-deep);
+    margin-bottom: 0.5rem;
+}
+
+.event-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+}
+
+.maps-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    color: var(--color-maroon);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.maps-button:hover {
+    background: var(--color-gold);
+    color: var(--color-cream);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   Love Story Section
+   ======================================== */
+
+.love-story {
+    background: var(--color-cream);
+}
+
+.story-timeline {
+    margin-top: 2rem;
+}
+
+.story-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.story-item:last-child {
+    margin-bottom: 0;
+}
+
+.story-year {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--color-white);
+    color: var(--color-maroon);
+    border: 1px solid var(--color-gold);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.story-content {
+    flex: 1;
+    text-align: center;
+}
+
+.story-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--color-maroon-deep);
+    margin-bottom: 0.75rem;
+}
+
+.story-content p {
+    color: var(--color-text-light);
+    font-size: 1rem;
+}
+
+/* ========================================
+   Photo Gallery Slider
+   ======================================== */
+
+.gallery {
+    background: var(--color-cream);
+    border-top: 1px solid rgba(184, 134, 11, 0.5);
+}
+
+.gallery-slider {
+    position: relative;
+    max-width: 700px;
+    margin: 2rem auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(184, 134, 11, 0.4);
+}
+
+.gallery-track {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+
+.gallery-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-gold);
+    background: rgba(253, 248, 240, 0.9);
+    color: var(--color-maroon);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding-bottom: 4px;
+}
+
+.slider-prev { left: 0; border-radius: 0 4px 4px 0; border-left: none; }
+.slider-next { right: 0; border-radius: 4px 0 0 4px; border-right: none; }
+
+.slider-btn:hover {
+    background: var(--color-gold-pale);
+}
+
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-cream-dark);
+    border: 1px solid var(--color-gold);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-dots .dot.active {
+    background: var(--color-maroon);
+    border-color: var(--color-maroon);
+    transform: scale(1.2);
+}
+
+/* ========================================
+   RSVP Section
+   ======================================== */
+
+.rsvp-section {
+    text-align: center;
+    background: var(--color-cream);
+}
+
+.rsvp-text {
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.rsvp-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: var(--color-maroon);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: 1px solid var(--color-gold);
+}
+
+.rsvp-button:hover {
+    background: var(--color-gold);
+    color: var(--color-cream);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+}
+
+.rsvp-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #25D366;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.whatsapp-button:hover {
+    background: #20BD5A;
+    transform: translateY(-3px);
+}
+
+/* RSVP Form */
+.rsvp-form-section {
+    background: var(--color-cream);
+    border-top: 1px solid rgba(184, 134, 11, 0.5);
+}
+
+.rsvp-form {
+    max-width: 500px;
+    margin: 2rem auto 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+.attendance-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.attendance-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-cream-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.attendance-option:hover {
+    border-color: var(--color-gold-pale);
+}
+
+.attendance-option input:checked + span {
+    font-weight: 600;
+}
+
+.attendance-option:has(input:checked) {
+    border-color: var(--color-gold);
+    background: rgba(184, 134, 11, 0.08);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(184, 134, 11, 0.4);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--color-white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--color-maroon);
+    border: 1px solid var(--color-gold);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-button:hover {
+    background: var(--color-gold);
+    color: var(--color-cream);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--color-maroon-deep);
+    color: var(--color-cream);
+    border-top: 2px solid var(--color-gold);
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+.footer-hashtag {
+    color: var(--color-gold);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.footer-date {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   Guest Wishes Section
+   ======================================== */
+
+.wishes-section {
+    background: var(--color-cream-dark);
+}
+
+.wishes-intro {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}
+
+.wishes-form {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.wishes-board {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wish-card {
+    background: var(--color-white);
+    padding: 1.25rem;
+    border-radius: 4px;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+    border-left: 3px solid var(--color-gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.wish-card .wish-name {
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--color-maroon);
+    margin-bottom: 0.5rem;
+}
+
+.wish-card .wish-message {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.wishes-empty {
+    text-align: center;
+    color: var(--color-text-light);
+    padding: 2rem;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-corner {
+        width: 60px;
+        height: 60px;
+    }
+
+    .hero-illustration {
+        width: min(95%, 320px);
+    }
+
+    .hero-names {
+        font-size: 2.2rem;
+    }
+
+    .hero-hashtag {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        padding: 1.5rem 1rem;
+    }
+
+    .countdown-value {
+        font-size: 2rem;
+    }
+
+    .timeline-line {
+        left: 28px;
+    }
+
+    .timeline-item {
+        flex-direction: row !important;
+        gap: 1rem;
+    }
+
+    .timeline-item .timeline-content {
+        text-align: left !important;
+    }
+
+    .event-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .event-date {
+        width: auto;
+    }
+
+    .story-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .story-year {
+        width: 70px;
+        height: 70px;
+        font-size: 1rem;
+    }
+
+    .gallery-slider {
+        margin: 2rem 0;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .music-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .rsvp-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phulkari-top,
+    .phulkari-bottom {
+        height: 16px;
+        opacity: 0.45;
+    }
+
+    .phulkari-left,
+    .phulkari-right {
+        width: 16px;
+        top: 16px;
+        bottom: 16px;
+        opacity: 0.45;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .hero-corner {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero-names {
+        font-size: 1.9rem;
+    }
+
+    .ik-onkar-line {
+        font-size: 1.1rem;
+    }
+
+    .punjabi-greeting {
+        font-size: 0.8rem;
+    }
+
+    .countdown-timer {
+        gap: 0.75rem;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 1rem;
+    }
+
+    .countdown-value {
+        font-size: 1.75rem;
+    }
+
+    .attendance-options {
+        gap: 0.5rem;
+    }
+}

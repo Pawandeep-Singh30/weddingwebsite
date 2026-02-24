@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karamjit & Balnisha | Punjabi Wedding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="punjabi-theme">
+
+    <!-- Invitation Opening Overlay -->
+    <div id="invitation-overlay" class="invitation-overlay">
+        <div class="invitation-content">
+            <p class="invitation-ik-onkar">ੴ</p>
+            <p class="invitation-text">Karamjit Singh & Balnisha Kaur Invite You</p>
+            <p class="invitation-greeting">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</p>
+            <button id="open-invitation" class="open-invitation-btn">Open Invitation</button>
+        </div>
+    </div>
+
+    <!-- Gold Sparkles Background -->
+    <div id="sparkles-container" class="sparkles-container" aria-hidden="true"></div>
+
+    <!-- Phulkari-style decorative borders -->
+    <div class="phulkari-border phulkari-top" aria-hidden="true"></div>
+    <div class="phulkari-border phulkari-bottom" aria-hidden="true"></div>
+    <div class="phulkari-border phulkari-left" aria-hidden="true"></div>
+    <div class="phulkari-border phulkari-right" aria-hidden="true"></div>
+
+    <!-- Shimmer Border -->
+    <div class="shimmer-border">
+        <div class="shimmer-border-inner"></div>
+    </div>
+
+    <audio id="bg-music" loop preload="metadata">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-toggle" aria-label="Play/Pause music">
+        <span class="music-icon icon-pause">⏸</span>
+        <span class="music-icon icon-play">▶</span>
+    </button>
+
+    <!-- Hero Section - Traditional Sikh Wedding -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <!-- Floral corner decorations - top left and top right -->
+        <div class="hero-corner hero-corner-tl" aria-hidden="true"></div>
+        <div class="hero-corner hero-corner-tr" aria-hidden="true"></div>
+        <!-- Soft golden glow behind illustration -->
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-content animate-hero-fade-in">
+            <p class="ik-onkar-line">ੴ Ik Onkar</p>
+            <p class="punjabi-greeting">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</p>
+            <h1 class="hero-names">
+                <span class="groom-name">Karamjit Singh</span>
+                <span class="ampersand">&</span>
+                <span class="bride-name">Balnisha Kaur</span>
+            </h1>
+            <!-- Mandap / Palki style illustration -->
+            <div class="hero-illustration hero-illustration-zoom">
+                <svg class="mandap-svg" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#D4AF37"/>
+                            <stop offset="100%" stop-color="#B8860B"/>
+                        </linearGradient>
+                        <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#8B3A42"/>
+                            <stop offset="100%" stop-color="#5C252B"/>
+                        </linearGradient>
+                        <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#B8860B" flood-opacity="0.15"/>
+                        </filter>
+                    </defs>
+                    <!-- Canopy / Arch top -->
+                    <path d="M50 80 Q200 20 350 80 L340 95 Q200 50 60 95 Z" fill="url(#maroonGrad)" opacity="0.9"/>
+                    <path d="M60 85 Q200 35 340 85" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <!-- Decorative arch border -->
+                    <path d="M80 90 Q200 45 320 90" stroke="url(#goldGrad)" stroke-width="0.8" fill="none" opacity="0.8"/>
+                    <!-- Pillars -->
+                    <rect x="90" y="100" width="12" height="140" rx="2" fill="url(#maroonGrad)" opacity="0.9"/>
+                    <rect x="198" y="100" width="12" height="140" rx="2" fill="url(#maroonGrad)" opacity="0.9"/>
+                    <rect x="298" y="100" width="12" height="140" rx="2" fill="url(#maroonGrad)" opacity="0.9"/>
+                    <line x1="90" y1="100" x2="102" y2="100" stroke="url(#goldGrad)" stroke-width="2"/>
+                    <line x1="198" y1="100" x2="210" y2="100" stroke="url(#goldGrad)" stroke-width="2"/>
+                    <line x1="298" y1="100" x2="310" y2="100" stroke="url(#goldGrad)" stroke-width="2"/>
+                    <!-- Floral garland curve -->
+                    <path d="M100 130 Q200 100 300 130" stroke="url(#goldGrad)" stroke-width="1" fill="none" opacity="0.6"/>
+                    <circle cx="150" cy="120" r="4" fill="url(#goldGrad)" opacity="0.7"/>
+                    <circle cx="200" cy="115" r="5" fill="url(#goldGrad)" opacity="0.8"/>
+                    <circle cx="250" cy="120" r="4" fill="url(#goldGrad)" opacity="0.7"/>
+                    <!-- Base platform -->
+                    <rect x="70" y="235" width="260" height="12" rx="2" fill="url(#maroonGrad)" opacity="0.85"/>
+                    <line x1="70" y1="235" x2="330" y2="235" stroke="url(#goldGrad)" stroke-width="1"/>
+                </svg>
+            </div>
+            <p class="hero-hashtag">#KJ-KI-ISHAA</p>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown" id="countdown">
+        <h2>Countdown to the Big Day</h2>
+        <p class="countdown-date">16 January 2027</p>
+        <div class="countdown-timer">
+            <div class="countdown-item">
+                <span id="days" class="countdown-value">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours" class="countdown-value">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes" class="countdown-value">00</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds" class="countdown-value">00</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Timeline Section -->
+    <section class="events" id="events">
+        <h2>Wedding Timeline</h2>
+        <div class="wedding-timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-item animate-slide-up">
+                <div class="timeline-icon" title="Dhol">🥁</div>
+                <div class="timeline-content">
+                    <h3>Sangeet</h3>
+                    <p class="timeline-date">14 Jan 2027</p>
+                    <p>An evening of music, dance, and celebration.</p>
+                </div>
+            </div>
+            <div class="timeline-item animate-slide-up">
+                <div class="timeline-icon" title="Floral">🌸</div>
+                <div class="timeline-content">
+                    <h3>Maiyaan</h3>
+                    <p class="timeline-date">15 Jan 2027</p>
+                    <p>Traditional haldi and maiyaan ceremony with family.</p>
+                </div>
+            </div>
+            <div class="timeline-item timeline-main animate-slide-up">
+                <div class="timeline-icon" title="Gurdwara">🕌</div>
+                <div class="timeline-content">
+                    <h3>Anand Karaj</h3>
+                    <p class="timeline-date">16 Jan 2027</p>
+                    <p>Ashby Road Gurdwara</p>
+                    <p>104, Jalan Raja Ashman Shah, Sungai Senam, 30450 Ipoh, Perak</p>
+                    <a href="https://maps.app.goo.gl/S5YMbhgQe6dHiF7W6" target="_blank" rel="noopener noreferrer" class="maps-button">View on Google Maps</a>
+                </div>
+            </div>
+            <div class="timeline-item animate-slide-up">
+                <div class="timeline-icon" title="Celebration">🎊</div>
+                <div class="timeline-content">
+                    <h3>Reception</h3>
+                    <p class="timeline-date">17 Jan 2027</p>
+                    <p>An evening reception to celebrate our union.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Section -->
+    <section class="love-story" id="love-story">
+        <h2>Our Love Story</h2>
+        <div class="story-timeline">
+            <div class="story-item animate-slide-up">
+                <div class="story-year">2022</div>
+                <div class="story-content">
+                    <h3>How We Met</h3>
+                    <p>Our paths crossed at a family gathering. A simple introduction turned into hours of conversation, and we knew from that moment that something special had begun. It felt like destiny had brought us together.</p>
+                </div>
+            </div>
+            <div class="story-item animate-slide-up">
+                <div class="story-year">2024</div>
+                <div class="story-content">
+                    <h3>The Proposal</h3>
+                    <p>Under the stars, surrounded by candles and our favourite music, we promised forever to each other. It was a night we'll cherish for the rest of our lives. Our hearts knew we were meant to be.</p>
+                </div>
+            </div>
+            <div class="story-item animate-slide-up">
+                <div class="story-year">2027</div>
+                <div class="story-content">
+                    <h3>Our Wedding</h3>
+                    <p>We invite you to celebrate with us as we begin this beautiful journey together. Your presence would make our day complete. Join us in this joyous celebration of love and family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Slider -->
+    <section class="gallery" id="gallery">
+        <h2>Our Moments</h2>
+        <div class="gallery-slider">
+            <button class="slider-btn slider-prev" aria-label="Previous image">‹</button>
+            <div class="gallery-track">
+                <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
+                <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1529636798458-92182e662485');"></div>
+                <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92');"></div>
+                <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
+                <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6');"></div>
+                <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486');"></div>
+            </div>
+            <button class="slider-btn slider-next" aria-label="Next image">›</button>
+        </div>
+        <div class="gallery-dots" id="gallery-dots"></div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section" id="rsvp">
+        <h2>Join Our Celebration</h2>
+        <p class="rsvp-text">We would be honoured to have you share our special day</p>
+        <div class="rsvp-buttons">
+            <a href="#rsvp-form" class="rsvp-button">RSVP Now</a>
+            <a href="https://wa.me/?text=Hello%20I%20confirm%20my%20attendance%20for%20%23KJ-KI-ISHAA%20wedding" target="_blank" rel="noopener noreferrer" class="whatsapp-button">WhatsApp RSVP</a>
+        </div>
+    </section>
+
+    <!-- RSVP Form -->
+    <section class="rsvp-form-section" id="rsvp-form">
+        <h2>RSVP</h2>
+        <form class="rsvp-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="attendance">Will you be attending?</label>
+                <div class="attendance-options">
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="yes" required>
+                        <span>Yes, I'll be there</span>
+                    </label>
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="no">
+                        <span>No, I can't make it</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Leave a message for the couple..."></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit RSVP</button>
+        </form>
+    </section>
+
+    <!-- Guest Wishes Message Board -->
+    <section class="wishes-section" id="wishes">
+        <h2>Guest Wishes</h2>
+        <p class="wishes-intro">Leave a message for the couple</p>
+        <form class="wishes-form" id="wishes-form">
+            <div class="form-group">
+                <label for="guest-name">Your Name</label>
+                <input type="text" id="guest-name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="guest-message">Your Message</label>
+                <textarea id="guest-message" rows="3" required placeholder="Write your wish..."></textarea>
+            </div>
+            <button type="submit" class="submit-button">Post Wish</button>
+        </form>
+        <div class="wishes-board" id="wishes-board"></div>
+    </section>
+
+    <footer>
+        <p>Karamjit Singh & Balnisha Kaur</p>
+        <p class="footer-hashtag">#KJ-KI-ISHAA</p>
+        <p class="footer-date">16 January 2027</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
