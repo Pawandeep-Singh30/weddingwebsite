@@ -331,66 +331,43 @@ body.punjabi-theme {
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: var(--color-cream);
+    justify-content: flex-start;
+    padding-top: clamp(2.5rem, 7vw, 4.5rem);
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
     overflow: hidden;
 }
 
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: var(--color-cream);
+    background: var(--color-cream) url("images/paper-texture.jpg") center center / cover no-repeat;
     z-index: 0;
 }
 
-/* Floral corner decorations - invitation card style */
-.hero-corner {
-    position: absolute;
-    top: 0;
-    width: clamp(80px, 18vw, 140px);
-    height: clamp(80px, 18vw, 140px);
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-corner-tl {
-    left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='0.6' opacity='0.5'%3E%3Cpath d='M5 50 Q20 30 45 40 Q35 55 5 50 M25 15 Q45 25 40 45 Q25 35 25 15 M55 25 Q75 15 80 35 Q65 45 55 25'/%3E%3Ccircle cx='15' cy='42' r='3' fill='%23B8860B' opacity='0.4'/%3E%3Ccircle cx='35' cy='28' r='2.5' fill='%23B8860B' opacity='0.35'/%3E%3Ccircle cx='60' cy='32' r='2' fill='%23B8860B' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.hero-corner-tr {
-    right: 0;
-    transform: scaleX(-1);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23B8860B' stroke-width='0.6' opacity='0.5'%3E%3Cpath d='M5 50 Q20 30 45 40 Q35 55 5 50 M25 15 Q45 25 40 45 Q25 35 25 15 M55 25 Q75 15 80 35 Q65 45 55 25'/%3E%3Ccircle cx='15' cy='42' r='3' fill='%23B8860B' opacity='0.4'/%3E%3Ccircle cx='35' cy='28' r='2.5' fill='%23B8860B' opacity='0.35'/%3E%3Ccircle cx='60' cy='32' r='2' fill='%23B8860B' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* Soft golden glow behind illustration */
-.hero-glow {
-    position: absolute;
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    width: min(90%, 420px);
-    height: min(55vw, 320px);
-    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.12) 0%, rgba(184, 134, 11, 0.05) 50%, transparent 75%);
+/* Decorative single frame and inner content */
+.hero-frame {
+    position: relative;
     z-index: 1;
-    pointer-events: none;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: clamp(2.4rem, 8vw, 3.4rem) clamp(1.4rem, 5vw, 2.4rem) clamp(2.8rem, 9vw, 3.6rem);
+    background-image: url("images/frame.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-content {
+.hero-frame-inner {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: clamp(1.5rem, 4vw, 3rem);
-    padding-top: clamp(2rem, 6vw, 4rem);
-    max-width: 520px;
     width: 100%;
+    text-align: center;
 }
 
 /* Ik Onkar at top */
@@ -437,25 +414,16 @@ body.punjabi-theme {
     margin: 0.15em 0;
 }
 
-/* Mandap illustration - slow zoom-in animation */
-.hero-illustration {
-    width: min(90%, 380px);
-    max-width: 380px;
-    margin: 0 auto;
-    filter: drop-shadow(0 4px 20px rgba(184, 134, 11, 0.12));
+/* Mandap illustration inside frame */
+.hero-mandap {
+    margin-top: clamp(0.75rem, 2.5vw, 1.25rem);
 }
 
-.hero-illustration-zoom {
-    animation: heroZoomIn 8s ease-out forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
-    animation-fill-mode: both;
-}
-
-.mandap-svg {
-    width: 100%;
-    height: auto;
+.hero-mandap-img {
     display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .hero-hashtag {
@@ -1286,16 +1254,19 @@ footer p {
     }
 
     .countdown-timer {
+        justify-content: center;
         gap: 0.75rem;
     }
 
     .countdown-item {
-        min-width: 70px;
-        padding: 1rem;
+        flex: 0 0 calc(50% - 0.75rem);
+        max-width: calc(50% - 0.75rem);
+        padding: 1.1rem 0.75rem;
+        min-width: auto;
     }
 
     .countdown-value {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
     }
 
     .attendance-options {
