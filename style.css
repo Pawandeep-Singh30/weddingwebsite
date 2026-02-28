@@ -37,6 +37,7 @@ body {
     color: var(--color-text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
 }
 
 /* Mehndi pattern background texture */
@@ -243,39 +244,7 @@ body.punjabi-theme {
     to { transform: rotate(360deg); }
 }
 
-/* ========================================
-   Phulkari-style Border Patterns
-   ======================================== */
 
-.phulkari-border {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9997;
-    background-repeat: repeat;
-    opacity: 0.6;
-}
-
-.phulkari-top,
-.phulkari-bottom {
-    left: 0;
-    right: 0;
-    height: 24px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24'%3E%3Cg fill='%23B8860B' fill-opacity='0.6'%3E%3Cpath d='M0 12 L5 8 L10 12 L15 8 L20 12 L25 8 L30 12 L35 8 L40 12'/%3E%3Ccircle cx='5' cy='8' r='2'/%3E%3Ccircle cx='15' cy='8' r='2'/%3E%3Ccircle cx='25' cy='8' r='2'/%3E%3Ccircle cx='35' cy='8' r='2'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.phulkari-top { top: 0; }
-.phulkari-bottom { bottom: 0; transform: rotate(180deg); }
-
-.phulkari-left,
-.phulkari-right {
-    top: 24px;
-    bottom: 24px;
-    width: 24px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='40'%3E%3Cg fill='%23B8860B' fill-opacity='0.6'%3E%3Cpath d='M12 0 L8 5 L12 10 L8 15 L12 20 L8 25 L12 30 L8 35 L12 40'/%3E%3Ccircle cx='8' cy='5' r='2'/%3E%3Ccircle cx='8' cy='15' r='2'/%3E%3Ccircle cx='8' cy='25' r='2'/%3E%3Ccircle cx='8' cy='35' r='2'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.phulkari-left { left: 0; }
-.phulkari-right { right: 0; transform: rotate(180deg); }
 
 /* ========================================
    Music Toggle Button
@@ -328,16 +297,14 @@ body.punjabi-theme {
 
 .hero {
     position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: clamp(2.5rem, 7vw, 4.5rem);
-    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
     overflow: hidden;
 }
+
+
 
 .hero-bg {
     position: absolute;
@@ -346,58 +313,74 @@ body.punjabi-theme {
     z-index: 0;
 }
 
-/* Decorative single frame and inner content */
-.hero-frame {
+/* Frame wrapper and image */
+.frame-wrapper {
     position: relative;
-    z-index: 1;
     width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-    padding: clamp(2.4rem, 8vw, 3.4rem) clamp(1.4rem, 5vw, 2.4rem) clamp(2.8rem, 9vw, 3.6rem);
-    background-image: url("images/frame.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .frame-wrapper {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .frame-wrapper {
+        max-width: 850px;
+    }
+}
+
+.frame-img {
+    height: 100vh;
+    width: auto;
+    display: block;
+    transform: translateX(-25px);
+}
+
+
+/* Content layer on top of frame */
+.frame-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.hero-frame-inner {
-    position: relative;
-    z-index: 2;
-    width: 100%;
     text-align: center;
+    padding: 10%;
+    box-sizing: border-box;
 }
 
-/* Ik Onkar at top */
+/* Ik Onkar symbol - vw scaling with min for readability */
 .ik-onkar-line {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: 10vw;
     color: var(--color-gold);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
+    margin-bottom: 8px;
 }
 
-/* Sikh greeting */
+/* Sikh greeting - vw scaling */
 .punjabi-greeting {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-size: 4vw;
     font-style: italic;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.0em;
     color: var(--color-maroon);
-    margin-bottom: 1.25rem;
+    margin-bottom: 20px;
 }
 
-/* Couple names - above illustration, script font */
+/* Couple names - vw scaling */
 .hero-names {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    font-size: 9vw;
     font-weight: 400;
     color: var(--color-maroon-deep);
-    line-height: 1.25;
-    margin-bottom: 1.25rem;
+    line-height: 1.1;
+    margin-bottom: 12px;
 }
 
 .groom-name,
@@ -409,30 +392,31 @@ body.punjabi-theme {
     display: block;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 0.55em;
+    font-size: 8vw;
     color: var(--color-gold);
-    margin: 0.15em 0;
+    margin: 4px 0;
 }
 
-/* Mandap illustration inside frame */
+/* Hashtag - vw scaling */
+.hero-hashtag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5vw;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-maroon);
+    margin-top: -18px;
+}
+
+/* Mandap illustration - 50-60% of frame width */
 .hero-mandap {
-    margin-top: clamp(0.75rem, 2.5vw, 1.25rem);
+    margin-top: 2vw;
 }
 
 .hero-mandap-img {
     display: block;
-    max-width: 80%;
+    width: 70%;
     height: auto;
-    margin: 0 auto;
-}
-
-.hero-hashtag {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.85rem, 2vw, 1rem);
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    color: var(--color-maroon);
-    margin-top: 1.25rem;
+    margin: 0px auto 0;
 }
 
 /* ========================================
@@ -1112,164 +1096,3 @@ footer p {
     padding: 2rem;
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
-
-@media (max-width: 768px) {
-    .hero-content {
-        padding: 1.5rem 1rem;
-    }
-
-    .hero-corner {
-        width: 60px;
-        height: 60px;
-    }
-
-    .hero-illustration {
-        width: min(95%, 320px);
-    }
-
-    .hero-names {
-        font-size: 2.2rem;
-    }
-
-    .hero-hashtag {
-        font-size: 0.85rem;
-        letter-spacing: 0.12em;
-    }
-
-    section {
-        padding: 3rem 1.5rem;
-    }
-
-    .countdown-timer {
-        gap: 1rem;
-    }
-
-    .countdown-item {
-        min-width: 80px;
-        padding: 1.5rem 1rem;
-    }
-
-    .countdown-value {
-        font-size: 2rem;
-    }
-
-    .timeline-line {
-        left: 28px;
-    }
-
-    .timeline-item {
-        flex-direction: row !important;
-        gap: 1rem;
-    }
-
-    .timeline-item .timeline-content {
-        text-align: left !important;
-    }
-
-    .event-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .event-date {
-        width: auto;
-    }
-
-    .story-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .story-year {
-        width: 70px;
-        height: 70px;
-        font-size: 1rem;
-    }
-
-    .gallery-slider {
-        margin: 2rem 0;
-    }
-
-    .slider-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
-    }
-
-    .music-toggle {
-        bottom: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
-    }
-
-    .rsvp-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .phulkari-top,
-    .phulkari-bottom {
-        height: 16px;
-        opacity: 0.45;
-    }
-
-    .phulkari-left,
-    .phulkari-right {
-        width: 16px;
-        top: 16px;
-        bottom: 16px;
-        opacity: 0.45;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
-
-    .hero-corner {
-        width: 50px;
-        height: 50px;
-    }
-
-    .hero-names {
-        font-size: 1.9rem;
-    }
-
-    .ik-onkar-line {
-        font-size: 1.1rem;
-    }
-
-    .punjabi-greeting {
-        font-size: 0.8rem;
-    }
-
-    .countdown-timer {
-        justify-content: center;
-        gap: 0.75rem;
-    }
-
-    .countdown-item {
-        flex: 0 0 calc(50% - 0.75rem);
-        max-width: calc(50% - 0.75rem);
-        padding: 1.1rem 0.75rem;
-        min-width: auto;
-    }
-
-    .countdown-value {
-        font-size: 1.6rem;
-    }
-
-    .attendance-options {
-        gap: 0.5rem;
-    }
-}
