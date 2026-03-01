@@ -303,19 +303,24 @@ body.punjabi-theme {
     align-items: center;
     overflow: hidden;
 }*/
+/*.hero {
+    position: relative;
+    width: 100%;
+}*/
+
 .hero {
     position: relative;
     width: 100%;
+    background: var(--color-cream) url("images/paper-texture.jpg") center top / cover no-repeat;
 }
 
 
-
-.hero-bg {
+/*.hero-bg {
     position: absolute;
     inset: 0;
     background: var(--color-cream) url("images/paper-texture.jpg") center center / cover no-repeat;
     z-index: 0;
-}
+}*/
 
 /* Frame wrapper and image */
 .frame-wrapper {
