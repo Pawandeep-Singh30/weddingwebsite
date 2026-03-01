@@ -333,10 +333,10 @@ body.punjabi-theme {
 }
 
 .frame-img {
-    position: absolute;
+    /*position: absolute;*/
     height: 100%;
     width: auto;
-    display: block;
+    /*display: block;*/
     /*transform: translateX(-18px);*/
 }
 
