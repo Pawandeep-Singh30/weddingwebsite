@@ -308,38 +308,34 @@ body.punjabi-theme {
     width: 100%;
 }*/
 
-.hero {
-    position: relative;
+/*.hero {
+    
     width: 100%;
-    background: var(--color-cream) url("images/paper-texture.jpg") center top / cover no-repeat;
-}
-
-
-/*.hero-bg {
-    position: absolute;
-    inset: 0;
-    background: var(--color-cream) url("images/paper-texture.jpg") center center / cover no-repeat;
-    z-index: 0;
+    background: var(--color-cream) url("images/paper-texture.jpg") center top repeat-y;
+    background-size: 100% auto;
+    
 }*/
 
-/* Frame wrapper and image */
-.frame-wrapper {
-    position: relative;
+
+.hero {
     width: 100%;
-    margin: 0;
+    background: var(--color-cream); /* plain base color */
 }
 
-@media (min-width: 768px) {
-    .frame-wrapper {
-        max-width: 700px;
-    }
+.frame-wrapper {
+    width: 100%;
+    background: url("images/paper-texture.jpg") center top repeat-y;
+    background-size: 100% auto;
 }
 
-@media (min-width: 1200px) {
-    .frame-wrapper {
-        max-width: 850px;
-    }
-}
+/* Frame wrapper and image */
+/*.frame-wrapper {
+
+    width: 100%;
+    
+}*/
+
+
 
 /*.frame-img {
     position: absolute;
