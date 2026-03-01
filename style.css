@@ -297,7 +297,7 @@ body.punjabi-theme {
 
 .hero {
     position: relative;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,10 +333,11 @@ body.punjabi-theme {
 }
 
 .frame-img {
-    height: 100vh;
+    position: absolute;
+    height: 100%;
     width: auto;
     display: block;
-    transform: translateX(-18px);
+    /*transform: translateX(-18px);*/
 }
 
 
