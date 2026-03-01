@@ -295,13 +295,17 @@ body.punjabi-theme {
    Hero Section - Traditional Sikh Wedding
    ======================================== */
 
-.hero {
+/*.hero {
     position: relative;
     height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}*/
+.hero {
+    position: relative;
+    width: 100%;
 }
 
 
@@ -332,12 +336,17 @@ body.punjabi-theme {
     }
 }
 
-.frame-img {
-    /*position: absolute;*/
+/*.frame-img {
+    position: absolute;
     height: 100%;
     width: auto;
-    /*display: block;*/
-    /*transform: translateX(-18px);*/
+    display: block;
+    transform: translateX(-18px);
+}*/
+.frame-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 
