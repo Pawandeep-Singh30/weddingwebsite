@@ -420,9 +420,9 @@ section:first-of-type::before {
 
 section h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 31px;
     font-weight: 600;
-    color: var(--color-maroon-deep);
+    color: #fff700;
     margin-bottom: 2.5rem;
     text-align: center;
 }
@@ -432,7 +432,7 @@ section h2::after {
     display: block;
     width: 80px;
     height: 1px;
-    background: var(--color-gold);
+    background: #fff700;
     margin: 1rem auto 0;
 }
 
@@ -463,9 +463,9 @@ section h2::after {
 
 .countdown-date {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 25px;
     font-family: 'Cormorant Garamond', serif;
-    color: var(--color-maroon);
+    color: #fff700;
     font-weight: 600;
     margin-bottom: 2rem;
 }
@@ -479,14 +479,14 @@ section h2::after {
 }
 
 .countdown-item {
-    background: var(--color-white);
+    background: #2d004f;
     padding: 2rem 2.5rem;
     border-radius: 4px;
     box-shadow: var(--shadow-soft);
     padding: 1.2rem;
     text-align: center;
     min-width: 120px;
-    border: 1px solid rgba(184, 134, 11, 0.4);
+    border: 3px solid #fff700;
     transition: var(--transition);
 }
 
@@ -500,14 +500,14 @@ section h2::after {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--color-maroon-deep);
+    color: #fff700;
 }
 
 .countdown-label {
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-text-light);
+    color: #fff700;
     margin-top: 0.5rem;
 }
 
