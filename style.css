@@ -440,9 +440,19 @@ section h2::after {
    Countdown Section
    ======================================== */
 
-.countdown {
+/*.countdown {
     background: var(--color-cream);
     color: var(--color-text-dark);
+    border-top: 1px solid rgba(184, 134, 11, 0.5);
+    border-bottom: 1px solid rgba(184, 134, 11, 0.5);
+}*/
+.countdown {
+    position: relative;
+
+    background: url("images/background_2.jpg") center center / cover no-repeat;
+
+    color: var(--color-text-dark);
+
     border-top: 1px solid rgba(184, 134, 11, 0.5);
     border-bottom: 1px solid rgba(184, 134, 11, 0.5);
 }
